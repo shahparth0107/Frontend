@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mangalam HDPE Pipes — Product</title>
+  <!-- Urbanist + Inter via Google Fonts (stylesheet only; assignment allows no JS libraries). -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Urbanist:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- section: sticky stack — compact strip reveals above primary nav per assignment -->
+  <div class="header-stack" id="header-stack">
+    <div class="site-sticky" id="site-sticky" aria-hidden="true">
+      <div class="site-sticky__inner">
+        <a class="site-sticky__logo" href="#" aria-label="Home">
+          <img src="assets/logo.png" width="88" height="36" alt="" />
+        </a>
+        <a class="btn btn--primary btn--sm" href="#">Contact Us</a>
+      </div>
+    </div>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="site-header__logo" href="#" aria-label="Home">
+          <img src="assets/logo.png" width="109" height="45" alt="Mangalam HDPE Pipes" />
+        </a>
+        <nav class="site-nav" aria-label="Primary">
+          <a class="site-nav__link" href="#">About Us</a>
+          <button type="button" class="site-nav__link site-nav__link--has-icon" aria-expanded="false" aria-haspopup="true">
+            Products
+            <img src="assets/caret-down.png" width="16" height="16" alt="" class="site-nav__caret" />
+          </button>
+          <a class="btn btn--primary" href="#">Contact Us</a>
+        </nav>
+      </div>
+    </header>
+  </div>
+
+  <main>
+    <!-- section: hero fold (Figma hero-fold-v2, node 490:8809) -->
+    <section class="hero" id="hero" aria-labelledby="hero-heading">
+      <div class="hero__noise" role="presentation"></div>
+      <img src="assets/hero-decoration.svg" alt="" class="hero__deco" width="600" height="610" />
+
+      <div class="hero__crumb" aria-label="Breadcrumb">
+        <span class="hero__crumb-muted">Products</span>
+        <img src="assets/caret-right-muted.png" width="12" height="12" alt="" />
+        <span>Two For One Twister</span>
+      </div>
+
+      <div class="hero__grid">
+        <div class="hero__gallery">
+          <div class="hero__main" id="hero-main">
+            <img
+              id="hero-main-img"
+              class="hero__main-img"
+              src="assets/hero-main.jpg"
+              alt="Industrial textile machinery in use"
+              width="570"
+              height="570"
+              draggable="false"
+            />
+            <div class="hero__zoom" id="hero-zoom" aria-hidden="true"></div>
+            <button type="button" class="hero__arrow hero__arrow--prev" id="hero-prev" aria-label="Previous image">
+              <img src="assets/arrow-icon.png" width="24" height="24" alt="" />
+            </button>
+            <button type="button" class="hero__arrow hero__arrow--next" id="hero-next" aria-label="Next image">
+              <img src="assets/arrow-icon.png" width="24" height="24" alt="" />
+            </button>
+          </div>
+          <div class="hero__thumbs" id="hero-thumbs" role="group" aria-label="Product images">
+            <!-- Thumbnails share the exported hero art (Figma placeholders); index selects carousel slide. -->
+            <button type="button" class="hero__thumb is-active" aria-pressed="true" id="hero-thumb-0" data-index="0">
+              <img src="assets/hero-main.jpg" alt="" width="80" height="80" />
+            </button>
+            <button type="button" class="hero__thumb" aria-pressed="false" id="hero-thumb-1" data-index="1">
+              <img src="assets/hero-main.jpg" alt="" width="80" height="80" />
+            </button>
+            <button type="button" class="hero__thumb" aria-pressed="false" id="hero-thumb-2" data-index="2">
+              <img src="assets/hero-main.jpg" alt="" width="80" height="80" />
+            </button>
+            <button type="button" class="hero__thumb" aria-pressed="false" id="hero-thumb-3" data-index="3">
+              <img src="assets/hero-main.jpg" alt="" width="80" height="80" />
+            </button>
+            <button type="button" class="hero__thumb" aria-pressed="false" id="hero-thumb-4" data-index="4">
+              <img src="assets/hero-main.jpg" alt="" width="80" height="80" />
+            </button>
+            <button type="button" class="hero__thumb" aria-pressed="false" id="hero-thumb-5" data-index="5">
+              <img src="assets/hero-main.jpg" alt="" width="80" height="80" />
+            </button>
+          </div>
+        </div>
+
+        <div class="hero__copy">
+          <div class="hero__badges">
+            <div class="badge">
+              <img src="assets/bis-hallmark.png" width="27" height="18" alt="" />
+              <span>BIS Certified</span>
+            </div>
+            <div class="badge">
+              <img src="assets/isi-mark.png" width="22" height="17" alt="" />
+              <span>ISO Certified</span>
+            </div>
+            <div class="badge">
+              <img src="assets/ce-cert.png" width="23" height="20" alt="" />
+              <span>CE Certified</span>
+            </div>
+          </div>
+          <h1 class="hero__title" id="hero-heading">Premium&nbsp;HDPE Pipes &amp; Coils&nbsp;for Modern Infrastructure</h1>
+          <ul class="hero__features">
+            <li><img src="assets/check-circle.png" width="16" height="16" alt="" /> Leak-Proof Fusion Joints</li>
+            <li><img src="assets/check-circle.png" width="16" height="16" alt="" /> Chemical Resistance</li>
+            <li><img src="assets/check-circle.png" width="16" height="16" alt="" /> 50+ Year Service Life</li>
+            <li><img src="assets/check-circle.png" width="16" height="16" alt="" /> Flexible Installation</li>
+            <li><img src="assets/check-circle.png" width="16" height="16" alt="" /> Flexible Installation</li>
+          </ul>
+          <div class="hero__card">
+            <div class="hero__price">
+              <p class="hero__price-label">Price Range</p>
+              <p class="hero__price-value">₹4,80,000 - 7,90,000</p>
+            </div>
+            <div class="hero__pills">
+              <span class="pill pill--amber">Shipping: 6-12 days</span>
+              <span class="pill pill--amber">Returns: If returned within 7 days</span>
+            </div>
+            <span class="pill pill--gray">Certifications: ISO Certified, BIS Certified</span>
+          </div>
+          <div class="hero__actions">
+            <a class="btn btn--primary btn--lg" href="#">Get Custom Quote</a>
+            <a class="btn btn--outline btn--lg" href="#">
+              View Technical Specs
+              <img src="assets/caret-right-dark.png" width="16" height="16" alt="" />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__logos">
+        <p class="hero__logos-title">Trusted by Hundreds of Companies Globally</p>
+        <div class="hero__logos-row">
+          <img src="assets/partner-logo.png" width="122" height="32" alt="Partner logo" />
+          <img src="assets/partner-logo.png" width="122" height="32" alt="" />
+          <img src="assets/partner-logo.png" width="122" height="32" alt="" />
+          <img src="assets/partner-logo.png" width="122" height="32" alt="" />
+          <img src="assets/partner-logo.png" width="122" height="32" alt="" />
+          <img src="assets/partner-logo.png" width="122" height="32" alt="" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Minimal below-fold space so scroll / sticky behavior can be exercised (assignment: past first fold). -->
+    <section class="spacer" aria-hidden="true"></section>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
