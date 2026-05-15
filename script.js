@@ -3,7 +3,7 @@
  * - Sticky mini-header: after passing the hero fold, show on scroll-down; hide on scroll-up.
  * - Hero carousel: prev/next + thumbnails update the main image (single exported asset).
  * - Hover zoom: magnified circular preview following pointer (skipped when reduced motion).
- * Manual checks: resize to ~360 / 768 / 1024 / 1280px; confirm no horizontal scroll, thumbs scroll on narrow widths, Tab focus visible on controls.
+ * - Manufacturing section: tab buttons swap visible panel (home-page Figma 490:9877).
  */
 (function () {
   "use strict";
@@ -139,4 +139,100 @@
   }
 
   setupZoom();
+
+  /** Manufacturing process tabs */
+  var mfgTabsRoot = document.querySelector(".mfg-tabs");
+  if (mfgTabsRoot) {
+    mfgTabsRoot.addEventListener("click", function (e) {
+      var tab = e.target.closest(".mfg-tab");
+      if (!tab || !mfgTabsRoot.contains(tab)) return;
+      var idx = tab.getAttribute("data-mfg");
+      if (idx === null) return;
+
+      var tabs = mfgTabsRoot.querySelectorAll(".mfg-tab");
+      Array.prototype.forEach.call(tabs, function (t) {
+        var on = t === tab;
+        t.classList.toggle("is-active", on);
+        t.setAttribute("aria-selected", on ? "true" : "false");
+      });
+
+      var panels = document.querySelectorAll("[data-mfg-panel]");
+      Array.prototype.forEach.call(panels, function (p) {
+        var on = p.getAttribute("data-mfg-panel") === idx;
+        p.classList.toggle("is-active", on);
+        if (on) p.removeAttribute("hidden");
+        else p.setAttribute("hidden", "");
+      });
+    });
+  }
+})();
+
+/* ===== Mobile navigation ===== */
+(function () {
+  var toggle = document.getElementById('nav-toggle');
+  var nav    = document.getElementById('mobile-nav');
+  var overlay = document.getElementById('nav-overlay');
+
+  function open() {
+    nav.removeAttribute('hidden');
+    overlay.classList.add('is-open');
+    toggle.classList.add('is-open');
+    toggle.setAttribute('aria-expanded', 'true');
+    toggle.setAttribute('aria-label', 'Close navigation menu');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function close() {
+    nav.setAttribute('hidden', '');
+    overlay.classList.remove('is-open');
+    toggle.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Open navigation menu');
+    document.body.style.overflow = '';
+  }
+
+  if (toggle) {
+    toggle.addEventListener('click', function () {
+      toggle.classList.contains('is-open') ? close() : open();
+    });
+  }
+
+  if (overlay) overlay.addEventListener('click', close);
+
+  if (nav) {
+    nav.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') close();
+    });
+  }
+})();
+
+/* ===== Scroll reveal ===== */
+(function () {
+  if (!window.IntersectionObserver) return;
+
+  var selectors = [
+    '.feature-card', '.app-card', '.portfolio-card',
+    '.testimonial-card', '.faq-item', '.resource-list li',
+    '.section__title', '.section__lead', '.mfg-panel__copy',
+    '.spec-table-wrap', '.portfolio-bar', '.faq-cta'
+  ];
+
+  var els = document.querySelectorAll(selectors.join(', '));
+
+  Array.prototype.forEach.call(els, function (el) {
+    el.classList.add('reveal');
+  });
+
+  var io = new IntersectionObserver(function (entries) {
+    Array.prototype.forEach.call(entries, function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
+
+  Array.prototype.forEach.call(els, function (el) {
+    io.observe(el);
+  });
 })();
