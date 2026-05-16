@@ -1,0 +1,16 @@
+# IDE / editors
+.cursor/
+.vscode/
+.idea/
+
+# macOS system files
+.DS_Store
+Thumbs.db
+
+# Node (if you ever add npm packages)
+node_modules/
+npm-debug.log*
+
+# Build output (if added later)
+dist/
+build/
